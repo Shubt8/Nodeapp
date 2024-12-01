@@ -1,10 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend
+  name: nodebackend
   namespace: test
   labels:
-    env: metageeks
+    App: backend
 spec:
   replicas: 2
   strategy:
@@ -14,11 +14,11 @@ spec:
       maxUnavailable: 25%
   selector:
     matchLabels:
-      env: metageeks
+      App: backend
   template:
     metadata:
       labels:
-        env: metageeks
+        App: backend
     spec:
       containers:
         - name: nodejsbackend
