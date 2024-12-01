@@ -1,10 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend
+  name: nodefrontend
   namespace: test
   labels:
-    Role: Frontend
+    App: frontend
 spec: 
   replicas: 1
   strategy:
@@ -14,11 +14,11 @@ spec:
       maxUnavailable: 25%
   selector:
     matchLabels: 
-      Role: Frontend
+      App: frontend
   template:
     metadata:
       labels:
-        Role: Frontend
+        App: frontend
     spec: 
       containers:
         - name: nodejsbackend
